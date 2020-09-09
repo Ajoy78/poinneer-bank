@@ -81,7 +81,7 @@
         })
 
             //deposite
-            var x;
+            var totalAccountBalance;
             var desposit = document.getElementById("addDeposit");
             desposit.addEventListener("click",function(){
 
@@ -106,7 +106,7 @@
             
 
             var totalAmount = realBalance + depositAmount;//
-             x = document.getElementById("currentBalance").innerHTML = totalAmount;
+             totalAccountBalance = document.getElementById("currentBalance").innerHTML = totalAmount;
              document.getElementById(x); 
             })
 
@@ -133,9 +133,15 @@
 
             //Main balance
             
+            if(inputWithdraw <=  totalAccountBalance) {
 
-            var remainningBalance = x - inputWithdraw;
-            document.getElementById("currentBalance").innerHTML = remainningBalance;
+                var remainningBalance = totalAccountBalance - inputWithdraw;
+                document.getElementById("currentBalance").innerHTML = remainningBalance;
+            }
+            else{
+                document.getElementById("currentBalance").innerHTML = "You have not enough balance" ;
+            }
+
 
             })
 
