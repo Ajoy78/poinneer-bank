@@ -79,7 +79,7 @@
         })
 
             //deposite
-
+            
             var desposit = document.getElementById("addDeposit");
             desposit.addEventListener("click",function(){
 
@@ -108,20 +108,44 @@
             })
 
             //withdraw balance
+            
                 var withdrabtn = document.getElementById("addWithdraw");
 
                     withdrabtn.addEventListener("click", function(){
 
                     var inputWithdrawTaka = document.getElementById("withdrawAmount").value;
-                    var inputWithdraw = purseFloat(inputWithdrawTaka);
+                    var inputWithdraw = parseFloat(inputWithdrawTaka);
+                    console.log(inputWithdraw);
 
                     var currentWithdraw = document.getElementById("currentWithDrawMoney").innerHTML ;
-                    var currentWithDrawMoney = purseFloat(currentWithdraw);
+                    var currentWithDrawMoney = parseFloat(currentWithdraw);
 
                     var totalWithdraw = currentWithDrawMoney + inputWithdraw;
 
                     document.getElementById("currentWithDrawMoney").innerHTML = totalWithdraw;
-                    document.getElementById("withdrawAmount");
+                    document.getElementById("withdrawAmount").value = "";
+
+                    //Main balance
+
+                    var inputWithDrawTaka = document.getElementById("withdrawAmount").value;
+                    var withDrawTakaPoisha = parseFloat(inputWithDrawTaka);
+
+                    var y = document.getElementById("currentBalance").innerHTML;
+                    var mainBalance = parseFloat(y);
+                    //document.getElementById(mainBalance);
+                    var x = document.getElementById("addAmount").value ;
+                    var y = parseFloat(x);
+
+                    if( y == 0 || y ==" "){
+                        var bakiTaka = mainBalance -  withDrawTakaPoisha ;
+                        document.getElementById("currentBalance").innerText = bakiTaka ;
+                    }
+                    else{
+                        
+                    }
+                    
+                   // var MyAccountBalance = currentTotalTaka -  withDrawTakaPoisha;
+                    
                 })
         
     </script>
