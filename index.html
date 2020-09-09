@@ -126,7 +126,7 @@
         //var z = totalAccountBalance;
         //console.log(totalAccountBalance);
 
-                    updateSpanText("currentBalance", -1*inputWithdraw);
+                    updateSpanTextt("currentBalance", -1*inputWithdraw);
 
 
 
@@ -141,6 +141,20 @@
         var totalAmount = currentValue + addAmount;
         document.getElementById(id).innerText = totalAmount;
     }
+
+    function updateSpanTextt(id,addAmount){
+
+
+    var current = document.getElementById(id).innerHTML;    
+    var currentValue = parseFloat(current);
+    var totalAmount = currentValue + addAmount;
+    if(totalAmount<0){
+        document.getElementById(id).innerText = "তুই শালা,গরীব মানুষ!";
+    }
+    else{
+        document.getElementById(id).innerText = totalAmount;
+    }
+}
 
 
     </script>
