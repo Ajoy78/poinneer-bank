@@ -81,7 +81,7 @@
         })
 
             //deposite
-            var totalAccountBalance;
+           
             var desposit = document.getElementById("addDeposit");
             desposit.addEventListener("click",function(){
 
@@ -89,61 +89,59 @@
             var depositAmount = parseFloat(inputAmount);//from user input 
            
             //currentDeposite
+            //var currentDeposit = document.getElementById("currentDeposit").innerText ;
+            //var currentBalanceValue = parseFloat(currentDeposit);
+            //var totalDeposit = currentBalanceValue + depositAmount ;
+            //document.getElementById("currentDeposit").innerText;
 
-            var currentDeposit = document.getElementById("currentDeposit").innerHTML;
-            var currentDepositValue = parseFloat(currentDeposit);
+            updateSpanText("currentDeposit",depositAmount); 
+           
 
-            var totalDeposit = currentDepositValue + depositAmount;
-            
-            document.getElementById("currentDeposit").innerHTML = totalDeposit;
             document.getElementById("addAmount").value = "";
-            
-            
-            //adding main balance
-            var balance = document.getElementById("currentBalance").innerHTML;
-            var realBalance = parseFloat(balance);
 
-            
 
-            var totalAmount = realBalance + depositAmount;//
-             totalAccountBalance = document.getElementById("currentBalance").innerHTML = totalAmount;
-             document.getElementById(x); 
+            updateSpanText("currentBalance",depositAmount); 
+
             })
 
+            
             //withdraw balance
             
-                var withdrabtn = document.getElementById("addWithdraw");
-
+                    var withdrabtn = document.getElementById("addWithdraw");
                     withdrabtn.addEventListener("click", function(){
 
                     var inputWithdrawTaka = document.getElementById("withdrawAmount").value;
                     var inputWithdraw = parseFloat(inputWithdrawTaka);
-                    
 
-                    var currentWithdraw = document.getElementById("currentWithDrawMoney").innerHTML ;
-                    var currentWithDrawMoney = parseFloat(currentWithdraw);
 
-                    var totalWithdraw = currentWithDrawMoney + inputWithdraw;
+                    updateSpanText("currentWithDrawMoney",inputWithdraw);
 
-                    document.getElementById("currentWithDrawMoney").innerHTML = totalWithdraw;
+
                     document.getElementById("withdrawAmount").value = "";
 
 
+                    
+
+        //Main balance
+        //var z = totalAccountBalance;
+        //console.log(totalAccountBalance);
+
+                    updateSpanText("currentBalance", -1*inputWithdraw);
 
 
-            //Main balance
-            
-            if(inputWithdraw <=  totalAccountBalance) {
 
-                var remainningBalance = totalAccountBalance - inputWithdraw;
-                document.getElementById("currentBalance").innerHTML = remainningBalance;
-            }
-            else{
-                document.getElementById("currentBalance").innerHTML = "You have not enough balance" ;
-            }
+        //console.log(totalAccountBalance);
+        })
+
+        function updateSpanText(id,addAmount){
 
 
-            })
+        var current = document.getElementById(id).innerHTML;    
+        var currentValue = parseFloat(current);
+        var totalAmount = currentValue + addAmount;
+        document.getElementById(id).innerText = totalAmount;
+    }
+
 
     </script>
 </body>
