@@ -65,6 +65,8 @@
 
 
     <script>
+
+            
             //login
             var loginBtn = document.getElementById("login");
 
@@ -79,7 +81,7 @@
         })
 
             //deposite
-            
+            var x;
             var desposit = document.getElementById("addDeposit");
             desposit.addEventListener("click",function(){
 
@@ -103,8 +105,9 @@
 
             
 
-            var totalAmount = realBalance + depositAmount;
-            document.getElementById("currentBalance").innerHTML = totalAmount; 
+            var totalAmount = realBalance + depositAmount;//
+             x = document.getElementById("currentBalance").innerHTML = totalAmount;
+             document.getElementById(x); 
             })
 
             //withdraw balance
@@ -115,7 +118,7 @@
 
                     var inputWithdrawTaka = document.getElementById("withdrawAmount").value;
                     var inputWithdraw = parseFloat(inputWithdrawTaka);
-                    console.log(inputWithdraw);
+                    
 
                     var currentWithdraw = document.getElementById("currentWithDrawMoney").innerHTML ;
                     var currentWithDrawMoney = parseFloat(currentWithdraw);
@@ -125,29 +128,17 @@
                     document.getElementById("currentWithDrawMoney").innerHTML = totalWithdraw;
                     document.getElementById("withdrawAmount").value = "";
 
-                    //Main balance
 
-                    var inputWithDrawTaka = document.getElementById("withdrawAmount").value;
-                    var withDrawTakaPoisha = parseFloat(inputWithDrawTaka);
 
-                    var y = document.getElementById("currentBalance").innerHTML;
-                    var mainBalance = parseFloat(y);
-                    //document.getElementById(mainBalance);
-                    var x = document.getElementById("addAmount").value ;
-                    var y = parseFloat(x);
 
-                    if( y == 0 || y ==" "){
-                        var bakiTaka = mainBalance -  withDrawTakaPoisha ;
-                        document.getElementById("currentBalance").innerText = bakiTaka ;
-                    }
-                    else{
-                        
-                    }
-                    
-                   // var MyAccountBalance = currentTotalTaka -  withDrawTakaPoisha;
-                    
-                })
-        
+            //Main balance
+            
+
+            var remainningBalance = x - inputWithdraw;
+            document.getElementById("currentBalance").innerHTML = remainningBalance;
+
+            })
+
     </script>
 </body>
 </html>
