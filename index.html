@@ -85,8 +85,7 @@
             var desposit = document.getElementById("addDeposit");
             desposit.addEventListener("click",function(){
 
-            var inputAmount = document.getElementById("addAmount").value;
-            var depositAmount = parseFloat(inputAmount);//from user input 
+            var depositAmount = getInputNumber("addAmount"); 
            
             //currentDeposite
             //var currentDeposit = document.getElementById("currentDeposit").innerText ;
@@ -110,8 +109,7 @@
                     var withdrabtn = document.getElementById("addWithdraw");
                     withdrabtn.addEventListener("click", function(){
 
-                    var inputWithdrawTaka = document.getElementById("withdrawAmount").value;
-                    var inputWithdraw = parseFloat(inputWithdrawTaka);
+                    var inputWithdraw = getInputNumber("withdrawAmount");
 
 
                     updateSpanText("currentWithDrawMoney",inputWithdraw);
@@ -126,12 +124,20 @@
         //var z = totalAccountBalance;
         //console.log(totalAccountBalance);
 
-                    updateSpanTextt("currentBalance", -1*inputWithdraw);
+        updateSpanTextt("currentBalance", -1*inputWithdraw);
 
 
 
         //console.log(totalAccountBalance);
         })
+
+        function getInputNumber(id){
+            var inputTaka = document.getElementById(id).value;
+            var inputNumber = parseFloat(inputTaka);
+            return inputNumber ;
+        }
+
+
 
         function updateSpanText(id,addAmount){
 
